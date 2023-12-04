@@ -1,0 +1,74 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+</head>
+{% extends 'user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post"enctype="multipart/form-data" action="/applypost#about">
+
+    <table class="table table-dark table-striped">
+        <th colspan="5" style="text-align: center; font-size: 30px; text-decoration: underline; color:#b6d4fe"> APPLICATION FORM</th>
+
+    <tr>
+      <td>Name</td>
+      <td><label>{{ v.Firstname }} {{ v.Lastname }}
+{#        <input type="text"  name="textfield1" required pattern="[A-Za-z]+" title="Name should only contain letters (A-Z or a-z)" />#}
+      </label></td>
+    </tr>
+    <tr>
+      <td>Date-Of-Birth</td>
+      <td><label>{{ v.Dob }}
+{#        <input type="date" name="textfield2" max="{{ max }}" min="{{ min }}"  title="you are not eligible for applying this policy"required />#}
+      </label></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><label>
+        <input name="radiobutton" type="radio" value="male" {% if v.Gender == "male" %}checked{% endif %}  />
+      Male
+      <input name="radiobutton" type="radio" value="female" {% if v.Gender == "female" %}checked{% endif %}/>
+      Female</label></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td><label>{{ v.Place }},{{ v.Post }},{{ v.Pin }}
+{#        <input type="text" name="textfield3" required pattern="[A-Z a-z.]{3,25}" title="Enter valid address"/>#}
+      </label></td>
+    </tr>
+    <tr>
+      <td>Id proof </td>
+         <td><label>
+        <input type="file" name="image" accept="application/pdf"  required oninvalid="this.setCustomValidity('Please send the file as PDF ')" oninput="setCustomValidity('')"/>
+{#      <td></td>#}
+         </label></td>
+    </tr>
+    <tr>
+      <td>Relation</td>
+      <td><label>
+        <select name="select">
+{#            <option value="father">father</option>#}
+{#            <option value="mother">mother</option>#}
+{#            <option value="wife">wife</option>#}
+{#            <option value="child">child</option>#}
+            <option value="myself">myself</option>
+
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div  style="text-align: center;">
+          <input type="submit"  name="Send" value="Send"  class="btn btn-outline-primary"/>
+          </div>
+      </td>
+    </tr>
+  </table>
+  <label></label>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

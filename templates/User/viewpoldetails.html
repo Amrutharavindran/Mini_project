@@ -1,0 +1,62 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{% extends 'user_index.html' %}
+{% block body  %}
+
+</head>
+
+
+<body>
+<table  class= "table  table-dark table-stripped"  cellspacing="0" width="50%">
+    <th  colspan="7" style="text-align: center; font-size: 30px; text-decoration: underline; color:#b6d4fe">POLICY DETAILS</th>
+
+<form id="form1" name="form1" method="post" action=" ">
+
+    <tr >
+      <td style="font-size: 20px;font-weight: bold;">MININUM AGE</td>
+      <td style="font-size: 20px;font-weight: bold;">MAXIMUM AGE</td>
+      <td style="font-size: 20px;font-weight: bold;"> COVERAGE</td>
+      <td style="font-size: 20px;font-weight: bold;">DEPENDENTS NUMBER</td>
+      <td style="font-size: 20px;font-weight: bold;">DEPENDENTS AGE-LIMIT</td>
+        <td></td>
+    </tr>
+      {% for i in val %}
+            <tr>
+           <td>{{i.min_age}}</td>
+           <td>{{i.max_age}}</td>
+          <td>{{ i.Type}}</td>
+          <td>{{ i.Dependents_count}}</td>
+          <td>{{ i.Dependents_agelimit}}</td>
+                <td><a href="{% url 'apply' id=i.POLICY.id %}#about" class="btn btn-outline-success">Apply</a></td>
+
+   </tr>
+         {% endfor %}
+{#<tr>#}
+{#    <td colspan="6"><div class="pagination">#}
+{#    <span class="step-links">#}
+{#        {% if my_objects.has_previous %}#}
+{#            <a href="?page=1">&laquo; first</a>#}
+{#            <a href="?page={{ my_objects.previous_page_number }}">previous</a>#}
+{#        {% endif %}#}
+{##}
+{#        <span class="current">#}
+{#            Page {{ my_objects.number }} of {{ my_objects.paginator.num_pages }}.#}
+{#        </span>#}
+{##}
+{#        {% if my_objects.has_next %}#}
+{#            <a href="?page={{ my_objects.next_page_number }}">next</a>#}
+{#            <a href="?page={{ my_objects.paginator.num_pages }}">last &raquo;</a>#}
+{#        {% endif %}#}
+{#    </span>#}
+{#</div></td>#}
+{#</tr>#}
+
+
+</form>
+  </table>
+</body>
+</html>
+{% endblock %}

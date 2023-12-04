@@ -1,0 +1,75 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+
+{#</head>#}
+{% extends 'user_index.html' %}
+{% block body %}
+
+<body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+
+$(document).ready(function(){
+
+    $("select#select").change(function() {
+
+        if ($(this).val() != 'default') {
+
+            var br = $('#select option:selected').val();
+            $.ajax({
+                type: 'POST',
+                url: "/index",
+                data: { brand: br },
+
+                success: function(response) {
+
+               document.getElementById("textfield").value=response.task;
+
+
+                }
+            });
+        }
+        else {
+            $('select#model').html('').prop('disabled',true);
+        }
+    });
+});
+</script>
+{#</head>#}
+
+
+
+<form id="form1" name="form1" method="post" action="/user_pay_proceed">
+  <table class="table table-dark table-striped">
+                  <th colspan="5" style="text-align: center; font-size: 30px; text-decoration: underline; color:#b6d4fe"> PAYMENT FOR POLICY</th>
+
+    <tr>
+      <td width="132">select policy </td>
+      <td width="83"><label>
+        <select name="select" id="select" required>
+        <option value="">Select</option>
+            {% for i in val  %}
+            <option value="{{ i.id}}">{{ i.POLICY.Policyname }}</option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Amount</td>
+      <td><label>
+        <input type="text" name="textfield" id="textfield" required/>
+      </label></td>
+    </tr>
+    <tr>
+        <td colspan="2"><div align="center"><input type="submit" value="PAY"></div></td>
+    </tr>
+  </table>
+  <a href="#"></a>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

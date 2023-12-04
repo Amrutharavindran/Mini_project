@@ -1,0 +1,51 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{% extends 'user_index.html' %}
+{% block body %}
+</head>
+
+<body>
+<form action="/sendclm" method="post" enctype="multipart/form-data" name="form1" id="form1">
+
+    <table class="table table-dark table-striped">
+    <th colspan="5" style="text-align: center; font-size: 30px; text-decoration: underline; color:#b6d4fe"> SEND CLAIM REQUEST</th>
+
+    <tr>
+      <td>Policy</td>
+      <td><label>
+        <select name="policy" required>
+            <option value="">Select</option>
+            {% for i in val %}
+             <option value="{{ i.id }}">{{ i.REQUEST.POLICY.Policyname }}</option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Reason for Claim </td>
+      <td><label>
+        <textarea name="textarea" required></textarea>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td>Claim Form </td>
+      <td><label>
+        <input type="file" name="file"  accept="application/pdf" required  oninvalid="this.setCustomValidity('Please send the file as PDF ')" oninput="setCustomValidity('')" />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center"><label>
+
+          <input type="submit" name="Submit" value="Send"class="btn btn-outline-light"/>
+
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

@@ -1,0 +1,78 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{%extends 'admin_index.html' %}
+{% block body %}
+
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/ad_polpostcode">
+  <table class="table table-dark" cellspacing="0" width="50%">
+                              <th  colspan="7" style="text-align: center; font-size: 30px; text-decoration: underline; ">ADD PREMIUM</th>
+
+{#    <table width="221" border="1">#}
+    <tr>
+      <td>Minimum Age </td>
+      <td><label>
+         <select name="select" required>
+
+             {% for i in lst %}
+             <option>{{ i }} year</option>
+             {% endfor %}
+
+         </select> </label></td>
+    </tr>
+    <tr>
+      <td>Maximum Age</td>
+      <td><label>
+         <select name="select2" required>
+
+             {% for i in lst %}
+             <option>{{ i }} year</option>
+             {% endfor %}
+
+         </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Amount</td>
+      <td><label>
+        <input type="text" name="textfield2"  required/>
+      </label>  </td>
+    </tr>
+
+
+    <tr>
+      <td colspan="2">
+        <div align="center">
+{#          <input type="submit" name="Submit" value="Save" />#}
+            <button type="submit" class="btn btn-info" style="border-radius: 1px" name="Submit">Save</button> <a href="/managepol" class="btn btn-primary" style="border-radius: 1px">Finish</a>
+          </div>
+      </td>
+    </tr>
+  </table>
+<table class="table table-dark" cellspacing="0" width="50%">
+ <tr>
+      <td width="66">Minage</td>
+      <td width="37">Maxage</td>
+      <td width="29">Premium</td>
+
+     <td></td>
+    </tr>
+    {% for i in val %}
+    <tr>
+        <td>{{ i.minage}}</td>
+        <td>{{ i.maxage}}</td>
+        <td>{{ i.premium_amount}}</td>
+    <td><a href="/delete_Premium_Details/{{ i.id }}" button type="button" onclick="return confirm('Are you sure to delete')" class="btn btn-danger" style="border-radius: 3px;">Delete</a> </td>
+
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

@@ -1,0 +1,58 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{%extends 'admin_index.html' %}
+{% block body %}
+
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="ad_polpost">
+{#  <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="50%">#}
+    <table class="table table-dark" width="221" border="1">
+                        <th  colspan="7" style="text-align: center; font-size: 30px; text-decoration: underline; ">ADD POLICY</th>
+
+    <tr>
+      <td>Policy Name </td>
+      <td><label>
+        <input type="text" name="textfield"  required/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td>Policy Details </td>
+
+      <td><label for="form10">
+        <textarea  id="form10" class="md-textarea form-control" rows="3" name="textarea" required></textarea>
+      </label></td>
+    </tr>
+{#          <tr>#}
+{#      <td>Premium</td>#}
+{#      <td><label>#}
+{#        <input type="text" name="textfield1"  required/>#}
+{#      </label></td>#}
+{#    </tr>#}
+<tr>
+      <td>Type</td>
+      <td><label>
+        <select name="type">
+            <option>Health</option>
+            <option>Vehicle</option>
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+          <div align="center">
+{#          <input type="submit" name="Submit" value="Save" />#}
+           <button type="submit" class="btn btn-info"name="Submit" style="border-radius: 2px;">Save</button>
+          </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

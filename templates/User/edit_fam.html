@@ -1,0 +1,81 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{% extends 'user_index.html' %}
+{% block body %}
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post"enctype="multipart/form-data" action="/edit_family#about">
+{#  <table width="200" border="1">#}
+<table class="table table-dark table-striped">
+        <th  colspan="7" style="text-align: center; font-size: 30px; text-decoration: underline; color:#b6d4fe">EDIT DETAILS</th>
+
+    <tr>
+      <td>Name</td>
+      <td><label>
+        <input type="text" name="textfield"value={{ val.name }} required pattern="[A-Za-z]+" title="Name should only contain letters (A-Z or a-z)"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Date-Of-Birth</td>
+      <td><label>
+        <input type="date" name="textfield1" value="{{ d }}" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><label>
+        <input name="radiobutton" type="radio" value="Male" checked/>
+      Male
+{#{% if val.gender == "Male" %}#}
+      <input name="radiobutton" type="radio" value="Female" />
+      Female</label></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td><label>
+        <input type="text" name="textfield2"value="{{ val.address }}"required>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Id proof </td>
+         <td><label>
+        <input type="file" name="image"  accept="application/pdf"/>
+         </label></td>
+{#      <td></td>#}
+    </tr>
+    <tr>
+      <td>Relation</td>
+      <td><label>
+        <select name="select" value="r">
+            {% if r == 'myself' %}
+            <option value="myself">myself</option>
+            {% else %}
+            <option value="father"  {% if r == 'father' %} selected {% endif %}>father</option>
+
+            <option value="mother" {% if r == 'mother' %} selected {% endif %}>mother</option>
+
+            <option value="wife" {% if r == 'wife' %} selected {% endif %}>wife</option>
+                       <option value="child" {% if r == 'child' %} selected {% endif %}>child</option>
+            {% endif %}
+
+
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;">
+        <div >
+          <input type="submit" name="Send" value="Send" class="btn btn-outline-light"/>
+          </div>
+      </td>
+    </tr>
+  </table>
+  <label></label>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

@@ -1,0 +1,81 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{% extends 'user_index.html' %}
+{% block body %}
+<head/>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="search_poly#about">
+
+<table class="table table-dark table-striped">
+<th  colspan="6" style="text-align: center; font-size: 30px; text-decoration: underline; color:#b6d4fe"> SEND POLICY REQUEST</th>
+
+    <tr>
+     <td colspan="12">
+
+            <div class="input-group">
+  <div class="form-outline">
+    <input type="text" name="t1" class="form-control" placeholder="Enter policyname">
+  </div>&nbsp;&nbsp;
+                 <div class="form-outline">
+    <input type="text" name="t2" class="form-control" placeholder="Enter policytype">
+  </div>&nbsp;&nbsp;
+              <div class="form-outline">   <input type="date" name="t3"  class="form-control" placeholder="Enter policyAmount">
+  </div>&nbsp;&nbsp;
+  <button type="submit" name="Submit" class="btn btn-outline-info" style="width:200px;">Search
+  </button>
+{#        <input type="text" name="textfield" />#}
+{#        <input type="submit" name="Submit" value="" />#}
+{#      </label>#}
+            </div>
+             </td>
+    </tr>
+
+    <tr style="background-color:darkgray ; color: #fff; font-weight: bold;">
+      <td  style="font-size: 20px;font-weight: bold;"width="52">POLICY NAME</td>
+      <td style="font-size: 20px;font-weight: bold;" width="53">POLICY DETAILS </td>
+        <td style="font-size: 20px;font-weight: bold;" width="53">POLICY AMOUNT </td>
+        <td style="font-size: 20px;font-weight: bold;" width="53">POLICY TYPE </td>
+      <td style="font-size: 20px;font-weight: bold;" width="29">DATE</td>
+      <td style="font-size: 20px;font-weight: bold;"width="136">&nbsp;</td>
+    </tr>
+   {% for i in my_objects %}
+    <tr>
+
+      <td>{{ i.Policyname }}</td>
+      <td>{{ i.Policydetails }} <br>{% if i.type == "Health" %} <a href="viewpoldetails/{{ i.id }}#about">view more</a> {% endif %} </td>
+        <td><a href="viewpremium1/{{ i.id }}#about">View Premium</a></td>
+      <td>&nbsp;{{ i.type }}</td>
+      <td>{{ i.Date }}</td>
+      <td><a href="apply/{{ i.id }}#about" class="btn btn-outline-success">Apply</a></td>
+    </tr>
+        {% endfor %}
+<tr>
+    <td colspan="6">
+        <div class="pagination">
+    <span class="step-links">
+        {% if my_objects.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ my_objects.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ my_objects.number }} of {{ my_objects.paginator.num_pages }}.
+        </span>
+
+        {% if my_objects.has_next %}
+            <a href="?page={{ my_objects.next_page_number }}">next</a>
+            <a href="?page={{ my_objects.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+    </td>
+</tr>
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

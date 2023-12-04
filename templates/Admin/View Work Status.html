@@ -1,0 +1,51 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{% extends 'admin_index.html' %}
+{% block body  %}
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+{#{% extends 'admin_index.html' %}#}
+{#{% block body  %}#}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+<body>
+<table id="dtBasicExample" class= "table table-dark"  cellspacing="0" width="50%">
+                              <th  colspan="7" style="text-align: center; font-size: 30px; text-decoration: underline; ">VIEW WORK STATUS</th>
+
+<form id="form1" name="form1" method="post" action="">
+{#  <table width="200" border="1">#}
+    <tr style=" background-color:darkgray ; color: #fff; font-weight: bold;">
+      <td>USERNAME</td>
+      <td>POLICY NAME</td>
+      <td> DATE</td>
+      <td>AGENT</td>
+      <td>STATUS</td>
+    </tr>
+      {% for i in val %}
+            <tr>
+           <td>{{i.REQUEST.USERID.Firstname}}{{i.REQUEST.USERID.Lastname}}</td>
+           <td>{{ i.REQUEST.POLICY.Policyname}}</td>
+          <td>{{ i.Date}}</td>
+          <td>{{ i.AGENT.Name}}</td>
+          <td>{{ i.Status }}</td>
+   </tr>
+         {% endfor %}
+{#<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>#}
+{##}
+{#<!-- Include DataTables JavaScript via CDN -->#}
+{#<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>#}
+{#<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>#}
+{##}
+{#<script>#}
+{#  $(document).ready(function () {#}
+{#    $('#dtBasicExample').DataTable();#}
+{#    $('.dataTables_length').addClass('bs-select');#}
+{#  });#}
+{#</script>#}
+</form>
+  </table>
+</body>
+</html>
+{% endblock %}

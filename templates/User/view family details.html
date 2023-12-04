@@ -1,0 +1,46 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+</head>
+{% extends 'user_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="complete_request">
+{#  <table width="285" border="1">#}
+<table class="table  table-dark table-stripped">
+        <th  colspan="7" style="text-align: center; font-size: 30px; text-decoration: underline; color:#b6d4fe">APPLICATION DETAILS</th>
+
+    <tr>
+      <td style="font-size: 20px;font-weight: bold;" width="38">NAME</td>
+      <td style="font-size: 20px;font-weight: bold;"width="50">RELATION</td>
+      <td style="font-size: 20px;font-weight: bold;" width="26">DOB</td>
+      <td  style="font-size: 20px;font-weight: bold;"width="46">GENDER</td>
+      <td style="font-size: 20px;font-weight: bold;" width="39">ID PROOF </td>
+      <td width="39">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td height="34">&nbsp;{{ i.name }}</td>
+      <td>&nbsp;{{ i.relation }}</td>
+      <td>&nbsp;{{ i.dob }}</td>
+      <td>&nbsp;{{ i.gender }}</td>
+        <td>&nbsp;<a href="{{ i.id_proof.url }}" download>View</a></td>
+      <td><p><a href="edit_fam/{{ i.id }}#about" class="btn btn-outline-success">Edit</a></p>
+      {% if i.relation == 'myself' %} {% else %}<p><a href="/delete_fam/{{ i.id }}"  class="btn btn-outline-danger">Delete</a></p>{% endif %}</td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="6" style="text-align: center;"><label>
+    {% if s == '2' %}   {% else %}<a href="/send_fam_details#about" class="btn btn-outline-light">ADD</a>{% endif %}
+
+        <input type="submit" name="submit" value="submit" class="btn btn-outline-light" />
+
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

@@ -1,0 +1,50 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+</head>
+{% extends 'user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post"enctype="multipart/form-data" action="/vehicleapply">
+{#  <table width="200" border="1">#}
+    <table class="table table-hover table-dark">
+        <th  colspan="5" style="text-align: center; font-size: 30px; text-decoration: underline; color:#b6d4fe">APPLICATION FORM</th>
+
+    <tr>
+      <td>Vehicle Type </td>
+      <td><label>
+        <select name="select">
+             <option value="car">car</option>
+            <option value="Bike">Bike</option>
+
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Vehicle Number </td>
+      <td><label>
+        <input type="text" name="textfield" required pattern="KL\d{2}[A-Z]{1,2}\d{4}" title="Please enter a valid vehicle number"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Rc Book </td>
+      <td><label>
+        <input type="file" name="image" accept="application/pdf"  required/>
+      </label></td>
+    </tr>
+    <tr>
+     <td>
+        <div align="center">
+          <input name="Send" type="submit" id="Send" value="Send" class="btn  btn-outline-light"/>
+          </div>
+</td>
+     <td></td>
+    </tr>
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

@@ -1,0 +1,36 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+</head>
+{% extends 'user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+
+    <table class="table table-dark table-striped">
+                    <th colspan="5" style="text-align: center; font-size: 30px; text-decoration: underline; color:#b6d4fe"> VIEW CLAIM STATUS</th>
+
+    <tr>
+      <td width="74" height="43">PolicyName</td>
+      <td width="29">Date</td>
+      <td width="68">Reason</td>
+      <td width="68">Claim form</td>
+      <td width="75">Status</td>
+    </tr>{% for i in val %}
+    <tr>
+
+      <td>{{i.ASSIGN.REQUEST.POLICY.Policyname}}</td>
+      <td>{{i.Date }}</td>
+      <td>{{ i.Reason}}</td>
+        <td>&nbsp;<a href="{{ i.Documents.url }}" download=""><u>{{ i.Documents }}</u></a></td>
+        <td> {{ i.status }}</td>
+        {% endfor %}
+    </tr>
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

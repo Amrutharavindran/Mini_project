@@ -1,0 +1,32 @@
+
+{#<html>#}
+{% extends 'user_index.html' %}
+{% block body  %}
+
+</head>
+    <body>
+
+<table class="table  table-dark table-stripped" cellspacing="0" width="50%">
+    <th  colspan="7" style="text-align: center; font-size: 30px; text-decoration: underline; color:#b6d4fe">PREMIUM DETAILS</th>
+
+
+<form id="form1" name="form1" method="post" action=" ">
+ <tr>
+      <td style="font-size: 17px;font-weight: bold;">Minage</td>
+      <td style="font-size: 17px;font-weight: bold;">Maxage</td>
+      <td style="font-size: 17px;font-weight: bold;">Premium</td>
+
+    </tr>
+    {% for i in val %}
+    <tr>
+        <td>{{ i.minage}}</td>
+        <td>{{ i.maxage}}</td>
+        <td>{{ i.premium_amount}}</td>
+
+
+    </tr>
+    {% endfor %}
+</form>
+</table>
+    </body>
+{% endblock %}

@@ -1,0 +1,47 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+</head>
+{% extends 'admin_index.html' %}
+{% block body  %}
+<body>
+<form action="/editpolipost" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table table-dark table-stripped">
+      <th  colspan="7" style="text-align: center; font-size: 30px; text-decoration: underline; ">EDIT POLICY</th>
+    <tr>
+      <td>Policyname</td>
+      <td><label>
+        <input type="text" name="textfield" value="{{ i.Policyname }}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Policydetails</td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{ i.Policydetails}}"/>
+      </label></td>
+    </tr>
+
+
+    <tr>
+      <td>Date</td>
+      <td><label>
+        <input type="date" name="textfield3" value="{{ d }}" />
+      </label></td>
+    </tr>
+
+
+
+    <tr>
+      <td colspan="2"style="text-align: center;"><label>
+
+          <input type="submit" name="Submit"  class="btn btn-success" style="border-radius: 2px;" value="EDIT" />
+
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+
+{% endblock %}
