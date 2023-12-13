@@ -1,4 +1,4 @@
-ABSTRACT INSURANCE AGENCY MANAGEMENT SYSTEM
+ABSTRACT INSURANCE AGENCY MANAGEMENT SYSTEM.
 
 The proposed project introduces a comprehensive web application tailored for Star Health and Allied Insurance Company, aiming to enhance customer experience, streamline agency operations, and foster efficient communication between agents and users. Key features of the proposed system include the ability for users to seamlessly apply for policies, track claims, and monitor their status. The IAMS serves as a centralized platform for managing policyholder records, agent details, policy specifics, and payment information. Special emphasisis placed on expediting health insurance claims,with a focus on providing a user-friendly interface for clients and efficient tools for insurance agents..
 
